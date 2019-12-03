@@ -1,6 +1,3 @@
-require "animal_rolodex/version"
+require_relative "./animal_rolodex/version"
+require_relative './animal_rolodex/cli'
 
-module AnimalRolodex
-  class Error < StandardError; end
-  # Your code goes here...
-end

@@ -1,4 +1,7 @@
 #!/usr/bin/env ruby
 
-puts "hello world"
+require "./lib/animal_rolodex"
+
+AnimalRolodex::CLI.new.call
+
 
