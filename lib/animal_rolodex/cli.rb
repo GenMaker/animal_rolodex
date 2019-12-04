@@ -1,3 +1,6 @@
+require_relative "../lib/scraper.rb"
+require_relative "../lib/student.rb"
+require 'colorize'
 require 'nokogiri'
 require 'open-uri'
 
@@ -5,6 +8,7 @@ require 'open-uri'
 
 
 class AnimalRolodex::CLI
+  BASE_PATH = "https://a-z-animals.com/animals/"
   
   def call
     welcome
@@ -21,10 +25,16 @@ def welcome
     input = gets.strip
   end 
   
-  #def spin (input= @input)
-#     while input != "exit"
+  def spin (input= @input) # like run
+      make_animals
+  end
+      
+  def make_animals (input = @ input)
+      if input != "exit"
+        puts "I am scraping for animals now...."
+        #animals = Scraper.scrape_for_animals (BASE_PATH)
 #       if input = "!"
-#         #then new_animal = code to go through site to find an animal
+#         code to go through site to find an animal
 #         animals = []
 #         site = Nokogiri::HTML(open("https://a-z-animals.com/animals/"))
 #         doc = Nokogiri::HTML(open(site))
