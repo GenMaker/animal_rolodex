@@ -27,9 +27,14 @@ class AnimalRolodex::CLI
   end
       
   def make_animals (input = @input)
-      if input != "exit"
+      if input == "!"
         puts "I am scraping for animals now...."
+        elsif input == "exit" || "Exit"
+          goodbye
+        else
+          puts "Oopps! did you type a ! or exit?  Try again."
       end
+      
         #animals = Scraper.scrape_for_animals (BASE_PATH)
 #       if input = "!"
 #         code to go through site to find an animal
@@ -41,15 +46,6 @@ class AnimalRolodex::CLI
 #         12.times do 
 #         things.shift
   end
-        
-        
-        
-  #   # puts new_animal
-  #     else 
-  #       puts "Oopps! did you type a ! or exit?  Try again."
-  #     end
-  #   end
-  # end
   
   def waiting_is_fun
     puts "Wheeeeeee! look at your rolodex spin!"
@@ -66,7 +62,7 @@ class AnimalRolodex::CLI
     puts "1. Draw a picture of your ------featured animal."
     puts "2. Play pretend that you are ------the featured animal."
     puts "3. Tell your Mom or Dad all about your new animal."
-    puts "Goodbye!"
+    puts "Goodbye! Till we spin again!"
   end
   
 end
