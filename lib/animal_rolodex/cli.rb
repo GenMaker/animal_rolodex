@@ -7,12 +7,11 @@ require 'nokogiri'
 class AnimalRolodex::CLI
   BASE_PATH = "https://a-z-animals.com/animals/"
   
-  def call
-    welcome
-    # spin
-    # waiting_is_fun
-    # list_info
-    # goodbye
+   def run (input = @input) # like run
+      welcome
+      make_animals
+      sort_list
+      display_result
   end
   
   def welcome
@@ -21,12 +20,9 @@ class AnimalRolodex::CLI
     puts "Enter ! to spin your rolodex. Type exit if you are done."
     input = gets.strip
   end 
-  
-  def spin (input = @input) # like run
-      make_animals
-  end
       
-  def make_animals (input = @input)
+  def make_animals 
+    
       if input == "!"
         puts "I am scraping for animals now...."
         elsif input == "exit" || "Exit"
@@ -57,8 +53,7 @@ class AnimalRolodex::CLI
   
   def goodbye
     #-- offer some kind of project that the user can do with the new informatoin--
-    puts "Thanks for checking out your animal rolodex."
-    puts "Additional project ideas:" 
+    puts "Thanks for checking out your animal rolodex. Additional project ideas:" 
     puts "1. Draw a picture of your ------featured animal."
     puts "2. Play pretend that you are ------the featured animal."
     puts "3. Tell your Mom or Dad all about your new animal."
