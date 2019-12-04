@@ -3,6 +3,7 @@ require 'open-uri'
 
 
 
+
 class AnimalRolodex::CLI
   
   def call
@@ -13,7 +14,12 @@ class AnimalRolodex::CLI
     # goodbye
   end
   
-
+def welcome
+    puts "Welcome to your animal rolodex!"
+    puts "Let's learn about a new animal today!"
+    puts "Enter ! to spin your rolodex. Type exit if you are done."
+    input = gets.strip
+  end 
   
   #def spin (input= @input)
 #     while input != "exit"
