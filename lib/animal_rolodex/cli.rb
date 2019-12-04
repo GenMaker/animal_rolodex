@@ -1,46 +1,41 @@
 require 'nokogiri'
 require 'open-uri'
-require 'pry'
+
 
 
 class AnimalRolodex::CLI
   
   def call
     welcome
-    spin
-    waiting_is_fun
-    list_info
-    goodbye
+    # spin
+    # waiting_is_fun
+    # list_info
+    # goodbye
   end
   
-  def welcome
-    puts "Welcome to your animal rolodex!"
-    puts "Let's learn about a new animal today!"
-  end 
+
   
-  def spin
-    puts "Enter ! to spin your rolodex. Type exit if you are done."
-    input = gets.strip
-    while input != "exit"
-      if input = "!"
-        #then new_animal = code to go through site to find an animal
-        animals = []
-        site = Nokogiri::HTML(open("https://a-z-animals.com/animals/"))
-        doc = Nokogiri::HTML(open(site))
-        animals = doc.css("ul li")
+  #def spin (input= @input)
+#     while input != "exit"
+#       if input = "!"
+#         #then new_animal = code to go through site to find an animal
+#         animals = []
+#         site = Nokogiri::HTML(open("https://a-z-animals.com/animals/"))
+#         doc = Nokogiri::HTML(open(site))
+#         animals = doc.css("ul li")
         
-        12.times do 
-        things.shift
-end
+#         12.times do 
+#         things.shift
+# end
         
         
         
-    # puts new_animal
-      else 
-        puts "Oopps! did you type a ! or exit?  Try again."
-      end
-    end
-  end
+  #   # puts new_animal
+  #     else 
+  #       puts "Oopps! did you type a ! or exit?  Try again."
+  #     end
+  #   end
+  # end
   
   def waiting_is_fun
     puts "Wheeeeeee! look at your rolodex spin!"
