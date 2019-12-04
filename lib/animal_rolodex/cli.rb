@@ -1,10 +1,7 @@
-require_relative "../lib/scraper.rb"
-require_relative "../lib/student.rb"
+require_relative "../animal_rolodex/scraper.rb"
+require_relative "../animal_rolodex/spin.rb"
 require 'colorize'
 require 'nokogiri'
-require 'open-uri'
-
-
 
 
 class AnimalRolodex::CLI
@@ -18,20 +15,21 @@ class AnimalRolodex::CLI
     # goodbye
   end
   
-def welcome
+  def welcome
     puts "Welcome to your animal rolodex!"
     puts "Let's learn about a new animal today!"
     puts "Enter ! to spin your rolodex. Type exit if you are done."
     input = gets.strip
   end 
   
-  def spin (input= @input) # like run
+  def spin (input = @input) # like run
       make_animals
   end
       
-  def make_animals (input = @ input)
+  def make_animals (input = @input)
       if input != "exit"
         puts "I am scraping for animals now...."
+      end
         #animals = Scraper.scrape_for_animals (BASE_PATH)
 #       if input = "!"
 #         code to go through site to find an animal
@@ -42,7 +40,7 @@ def welcome
         
 #         12.times do 
 #         things.shift
-# end
+  end
         
         
         
