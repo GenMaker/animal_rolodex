@@ -6,12 +6,14 @@ require 'nokogiri'
 
 class AnimalRolodex::CLI
   BASE_PATH = "https://a-z-animals.com/animals/"
+  @animal_array 
   
-   def run (input = @input) # like run
+   def call (input = @input) # like run
       welcome
       make_animals
-      sort_list
-      display_result
+      select_featured_animal
+      #sort_list
+      #display_result
   end
   
   def welcome
@@ -22,24 +24,22 @@ class AnimalRolodex::CLI
   end 
       
   def make_animals 
-    animal_array = Scraper.scrape_page(BASE_PATH)
+    @animal_array = Scraper.scrape_page(BASE_PATH)  # this is => @animals -an array of nokogiri animals
   end 
-     #
-        #animals = Scraper.scrape_for_animals (BASE_PATH)
-#       if input = "!"
-#         code to go through site to find an animal
-#         animals = []
-#         site = Nokogiri::HTML(open("https://a-z-animals.com/animals/"))
-#         doc = Nokogiri::HTML(open(site))
-#         animals = doc.css("ul li")
-        
-#         12.times do 
-#         things.shift
-  # end
+  
+  def select_featured_animal 
+    selected_featured_animal = Scraper.select_featured_animal(@animal_array)
+  end
+  
+  def locate_selected_animal_page()
+  end
   
   def waiting_is_fun
+
     puts "Wheeeeeee! look at your rolodex spin!"
   end
+  
+  
   
   def list_info
     puts "Your featured animal for today is: ______"
