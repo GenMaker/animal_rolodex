@@ -6,7 +6,7 @@ require 'nokogiri'
 
 class AnimalRolodex::CLI
   BASE_PATH = "https://a-z-animals.com/animals/"
-  @animal_array 
+  @animal_array =[]
   
    def call (input = @input) # like run
       welcome
