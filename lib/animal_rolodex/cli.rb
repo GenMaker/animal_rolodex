@@ -8,41 +8,41 @@ class AnimalRolodex::CLI
   BASE_PATH = "https://a-z-animals.com/animals/"
   @animal_array =[]
   
-   def call (input = @input) # like run
+   def call 
       welcome
-      make_animals
-      select_featured_animal
-      #sort_list
-      #display_result
   end
   
   def welcome
-    puts "Welcome to your animal rolodex!"
-    puts "Let's learn about a new animal today!"
+    puts "Welcome to your animal rolodex! Let's learn about a new animal today!"
     puts "Enter ! to spin your rolodex. Type exit if you are done."
+    
     input = gets.strip
+    if input == !
+      make_animals_list
+      select_featured_animal
+      display_result
+      elsif input == "exit" || input == "Exit"
+      goodbye
+    end
   end 
-      
-  def make_animals 
-    @animal_array = Scraper.scrape_page(BASE_PATH)  # this is => @animals -an array of nokogiri animals
+    
+  #creates an array of animals from the index page   
+  def make_animals_list
+    @animal_array = Scraper.scrape_page(BASE_PATH)  
   end 
   
-  def select_featured_animal 
-    selected_featured_animal = Scraper.select_featured_animal(@animal_array)
+  #selects a fetured animal
+  def select_featured_animal()
+    @selected_featured_animal = Scraper.select_featured_animal
   end
   
-  def locate_selected_animal_page()
+  def locate_selected_animal_data
+    @info = Scraper.selected_animal_data
   end
   
-  def waiting_is_fun
-
-    puts "Wheeeeeee! look at your rolodex spin!"
-  end
-  
-  
-  
-  def list_info
-    puts "Your featured animal for today is: ______"
+  def display_result
+    puts "Your featured animal for today is: #{@selected_featured_animal}"
+    @more_info = Spin.featured_animal_data
   end
   
   def goodbye
