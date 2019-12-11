@@ -1,5 +1,5 @@
 require_relative "../animal_rolodex/scraper.rb"
-require_relative "../animal_rolodex/spin.rb"
+require_relative "../animal_rolodex/play.rb"
 require 'colorize'
 require 'nokogiri'
 
@@ -8,23 +8,10 @@ class AnimalRolodex::CLI
   BASE_PATH = "https://a-z-animals.com/animals/"
   @animal_array =[]
   
-   def call 
-      welcome
+  def call 
+    Play.welcome
+    Play.play
   end
-  
-  def welcome
-    puts "Welcome to your animal rolodex! Let's learn about a new animal today!"
-    puts "Enter ! to spin your rolodex. Type exit if you are done."
-    
-    input = gets.strip
-    if input == !
-      make_animals_list
-      select_featured_animal
-      display_result
-      elsif input == "exit" || input == "Exit"
-      goodbye
-    end
-  end 
     
   #creates an array of animals from the index page   
   def make_animals_list
@@ -42,7 +29,7 @@ class AnimalRolodex::CLI
   
   def display_result
     puts "Your featured animal for today is: #{@selected_featured_animal}"
-    @more_info = Spin.featured_animal_data
+   
   end
   
   def goodbye

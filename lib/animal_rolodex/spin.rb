@@ -1,6 +1,0 @@
-
-class Spin
-  
- 
-  
-end
