@@ -19,10 +19,4 @@ class Scraper
     @animal_list.sample
   end
   
-  
-  
-  
-  
-  
-  
 end

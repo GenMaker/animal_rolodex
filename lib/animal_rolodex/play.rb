@@ -14,9 +14,8 @@ class Play
     @input = gets.strip
   end 
   
-  def play_again
-    puts "Enter ! to spin your rolodex. Type exit if you are done."
-    @input = gets.strip
+  def self.play_again
+    welcome
   end
   
   def self.goodbye
@@ -31,11 +30,12 @@ class Play
     welcome
     counter = 0
     if counter <= 5
-      if @input == !
+      if @input == "!"
         make_animals_list
         select_featured_animal
         display_result
         play_again
+        counter +=1
       else @input == "exit" || @input == "Exit"
         goodbye
       end
