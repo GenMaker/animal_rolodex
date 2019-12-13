@@ -4,5 +4,5 @@ source "https://rubygems.org"
 gemspec
 
 gem 'rake'
-gem 'pry'
+gem 'pry`
 gem 'require_all'
