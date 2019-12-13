@@ -28,6 +28,7 @@ class Play
   end
   
   def self.play 
+    welcome
     counter = 0
     if counter <= 5
       if @input == !
@@ -35,7 +36,6 @@ class Play
         select_featured_animal
         display_result
         play_again
-        
       else @input == "exit" || @input == "Exit"
         goodbye
       end
