@@ -25,10 +25,9 @@ class Play
   
   def self.play 
     welcome
-    if @counter <= 3
+    if @counter <= 2
       if @input == "!"
         @counter += 1
-        binding.pry
         make_animals_list
         select_featured_animal
         display_result
