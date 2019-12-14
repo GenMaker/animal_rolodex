@@ -7,16 +7,13 @@ class Play
   
   BASE_PATH = "https://a-z-animals.com/animals/"
   @animal_array =[]
+  @counter = 0
   
   def self.welcome
     puts "Welcome to your animal rolodex! Let's learn about a new animal today!"
     puts "Enter ! to spin your rolodex. Type exit if you are done."
     @input = gets.strip
   end 
-  
-  def self.play_again
-    welcome
-  end
   
   def self.goodbye
     puts "Thanks for checking out your animal rolodex. Additional project ideas:" 
@@ -28,18 +25,27 @@ class Play
   
   def self.play 
     welcome
-    counter = 0
-    if counter <= 5
+    if @counter <= 3
       if @input == "!"
+        @counter += 1
+        binding.pry
         make_animals_list
         select_featured_animal
         display_result
-        play_again
-        counter +=1
-      else @input == "exit" || @input == "Exit"
+        play
+      elsif @input == "exit" || @input == "Exit"
         goodbye
+      elsif @input != "!" || @input != "exit" || @input !="Exit"
+        puts "Opps make sure you type in ! or exit"
+        play
       end
+    else
+      puts "choose your animal!"
     end
+  end
+  
+  def self.play_again
+    play
   end
   
   #creates an array of animals from the index page   
