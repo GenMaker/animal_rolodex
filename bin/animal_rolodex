@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require "./lib/animal_rolodex"
+require_relative '../lib/animal_rolodex'
 
 AnimalRolodex::CLI.new.call
 
