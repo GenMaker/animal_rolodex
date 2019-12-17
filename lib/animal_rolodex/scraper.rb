@@ -18,4 +18,9 @@ class Scraper
     @animal_list.sample
   end
   
+  def self.scrape_selected_animal_data(animal_url)
+    doc2= Nokogiri::HTML(open(animal_url))
+    data = doc2.css("tr td ")
+  end
+  
 end

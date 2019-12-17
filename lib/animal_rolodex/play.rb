@@ -6,6 +6,7 @@ class Play
   attr_accessor :input
   
   BASE_PATH = "https://a-z-animals.com/animals/"
+  ANIMAL_DATA = "BASE_PATH+#{selected_featured_animal}/"
   @animal_array =[]
   @counter = 0
   
@@ -55,10 +56,6 @@ class Play
     end
   end
   
-  def self.play_again
-    play
-  end
-  
    #creates an array of animals from the index page   
   def self.make_animals_list
     @animal_array = Scraper.scrape_page(BASE_PATH)  
@@ -70,12 +67,23 @@ class Play
   end
   
   def self.locate_selected_animal_data
-    @info = Scraper.selected_animal_data
+    @info = Scraper.scrape_selected_animal_data(ANIMAL_DATA)
   end
   
   def self.display_result
-    puts "Your featured animal for today is: #{@selected_featured_animal}"
+    puts "Your featured animal for today is: #{@selected_featured_animal}."
+    learn_more
   end
   
+  def self.learn_more
+    puts "Want to learn more about #{@selected_featured_animal}. Enter Yes." 
+    puts "Want to spin again? Enter spin."
+    learn_choice = gets.strip
+    if learn_choice == "Y" || learn_choice == "y"
+      locate_selected_animal_data
+    else
+      play
+    end
+  end
   
 end
