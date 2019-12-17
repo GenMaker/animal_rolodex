@@ -12,7 +12,6 @@ class Scraper
     @animal_list << animal.text
     end
     @animal_list.shift()
-    #puts @animal_list
   end
 
   def self.select_featured_animal

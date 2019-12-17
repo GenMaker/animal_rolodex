@@ -31,7 +31,6 @@ class Play
         make_animals_list
         select_featured_animal
         display_result
-        play
       elsif @input == "exit" || @input == "Exit"
         goodbye
       elsif @input != "!" || @input != "exit" || @input !="Exit"
@@ -40,6 +39,19 @@ class Play
       end
     else
       puts "choose your animal!"
+      @choice = gets.strip
+      choose_one
+    end
+  end
+  
+  def self.choose_one
+    case @choice
+    when "1"
+      puts "choose 1"
+    when "2"
+      puts "choose 2"
+    when "3"
+      puts "choose 3"
     end
   end
   
@@ -47,7 +59,7 @@ class Play
     play
   end
   
-  #creates an array of animals from the index page   
+   #creates an array of animals from the index page   
   def self.make_animals_list
     @animal_array = Scraper.scrape_page(BASE_PATH)  
   end 
