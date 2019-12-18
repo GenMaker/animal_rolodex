@@ -4,14 +4,13 @@ require 'pry'
 require 'nokogiri'
 
 
-  class CLI
+class CLI
    BASE_PATH = "https://a-z-animals.com/animals/"
    
   def run 
     make_animals_list
     select_featured_animal
-    Scraper.parse_animal_name
-    #add_attributes_to_animal
+    add_attributes_to_animal
     #learn_more
   end
   
@@ -28,16 +27,16 @@ require 'nokogiri'
   
   #calls scraper to create featured animal data array
   def add_attributes_to_animal
-    
-    data = Scraper.scrape_selected_animal(BASE_PATH + @featured_animal + '/')
-   
+          ####working on how to get animal name into the scraper for animal data
+    name = Scraper.parse_animal_name(@featured_animal)
+
+    data = Scraper.scrape_selected_animal(BASE_PATH + animal.name + '/')
+    binding.pry
   end
   
-  
-  #
-  def learn_more
-    puts "Let's learn more about your #{@featured_animal}."
+  # def learn_more
+  #   puts "Let's learn more about your #{@featured_animal}."
     
-  end
+  # end
   
 end
