@@ -10,8 +10,9 @@ require 'nokogiri'
   def run 
     make_animals_list
     select_featured_animal
-    add_attributes_to_animal
-    learn_more
+    Scraper.parse_animal_name
+    #add_attributes_to_animal
+    #learn_more
   end
   
   #creates an array of animals from the index page   
@@ -27,13 +28,11 @@ require 'nokogiri'
   
   #calls scraper to create featured animal data array
   def add_attributes_to_animal
+    
     data = Scraper.scrape_selected_animal(BASE_PATH + @featured_animal + '/')
-    binding.pry
+   
   end
   
-  def parse_animal_name(animal)
-    
-  end
   
   #
   def learn_more

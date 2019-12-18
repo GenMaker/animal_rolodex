@@ -26,4 +26,17 @@ class Scraper
     animal
   end
   
+  def self.parse_animal_name
+    parsed_animal_list= []
+    @animal_name.each do |name|
+      if name.strip == name and name.include?(" ")
+        dashed = name.gsub! /\s+/, '-'
+        parsed_animal_list << dashed
+      else 
+        parsed_animal_list << name
+      end
+      parsed_animal_list
+    end
+  end
+  
 end

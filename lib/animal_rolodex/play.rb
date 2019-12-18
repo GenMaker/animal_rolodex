@@ -56,15 +56,8 @@ class Play
     end
   end
   
-   #creates an array of animals from the index page   
-  def self.make_animals_list
-    @animal_array = Scraper.scrape_page(BASE_PATH)  
-  end 
+ 
   
-  #selects a fetured animal
-  def self.select_featured_animal()
-    @selected_featured_animal = Scraper.select_featured_animal
-  end
   
   def self.locate_selected_animal_data
     @info = Scraper.scrape_selected_animal_data(ANIMAL_DATA)
