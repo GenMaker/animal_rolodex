@@ -6,7 +6,7 @@ class Play
   attr_accessor :input
   
   BASE_PATH = "https://a-z-animals.com/animals/"
-  ANIMAL_DATA = "BASE_PATH+#{selected_featured_animal}/"
+  #ANIMAL_DATA = "BASE_PATH+#{select_featured_animal}/"
   @animal_array =[]
   @counter = 0
   

@@ -3,24 +3,27 @@ require 'pry'
 require 'nokogiri'
 
 class Scraper
-  
+   
+   #creates a list of animals
   def self.scrape_page(site_url)
-    @animals = []
-    @animal_list= []
+    @animal_name=[]
     doc = Nokogiri::HTML(open(site_url))
-    list = doc.css("div li b").each do |animal|
-    @animal_list << animal.text
+    doc.css("div li b").each do |a|
+      @animal_name << a.text
     end
-    @animal_list.shift()
+    @animal_name.shift()
+    @animal_name
   end
-
-  def self.select_featured_animal
-    @animal_list.sample
-  end
-  
-  def self.scrape_selected_animal_data(animal_url)
+   
+   #takes a webpage for a specific animal and scrapes all fast facts into an array
+  def self.scrape_selected_animal(animal_url)
+    animal = []
     doc2= Nokogiri::HTML(open(animal_url))
-    data = doc2.css("tr td ")
+    animal = doc2.css("div li b").each do |a|
+      animal << a.text
+      end
+    animal.shift()
+    animal
   end
   
 end
