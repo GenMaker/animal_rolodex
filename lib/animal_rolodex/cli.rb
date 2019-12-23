@@ -1,9 +1,3 @@
-require_relative "../animal_rolodex/scraper.rb"
-require_relative "../animal_rolodex/play.rb"
-require 'pry'
-require 'nokogiri'
-
-
 class CLI
    BASE_PATH = "https://a-z-animals.com/animals/"
    
@@ -16,7 +10,9 @@ class CLI
   
   #creates an array of animals from the index page   
   def make_animals_list
+   
     @animal_array = Scraper.scrape_page(BASE_PATH) 
+    #make a new animal 
   end 
   
   #selects a fetured animal
@@ -29,12 +25,16 @@ class CLI
   def add_attributes_to_animal
           ####working on how to get animal name into the scraper for animal data
     name = Scraper.parse_animal_name(@featured_animal)
+    
+    name_to_s = name.to_s.downcase
+  
+    data = Scraper.scrape_selected_animal(BASE_PATH + name_to_s + '/')
+   
 
-    data = Scraper.scrape_selected_animal(BASE_PATH + animal.name + '/')
-    binding.pry
   end
   
   # def learn_more
+  
   #   puts "Let's learn more about your #{@featured_animal}."
     
   # end
