@@ -4,10 +4,7 @@ class CLI
   def run 
     make_animals
     select_featured_animal
-    Scraper.parse_animal_name(@selected_animal)
-    Scraper.scrape_selected_animal(BASE_PATH)
-    #add_attributes_to_animal # this method calls parse inside it
-    #learn_more
+    collect_animal_data
   end
   
     
@@ -20,27 +17,14 @@ class CLI
         @selected_animal= Play.select_animal
       end
   
-      def parse_animal_name                         #reshape animal name for second scraper
-        Scraper.parse_animal_name(@selected_animal)
+  
+      def collect_animal_data
+        Scraper.parse_animal_name(@selected_animal) #reshape animal name for second scraper
+        data = Scraper.scrape_selected_animal(BASE_PATH)   #creates animal_data raw data array
+        Animal.animal_data(data)
+        
       end
   
   
-  
-  def add_attributes_to_animal
-          
-    # name = Scraper.parse_animal_name(@featured_animal)
-    
-    # name_to_s = name.to_s.downcase
-  
-    Scraper.scrape_selected_animal(BASE_PATH)
-   
-
-  end
-  
-  # def learn_more
-  
-  #   puts "Let's learn more about your #{@featured_animal}."
-    
-  # end
   
 end
