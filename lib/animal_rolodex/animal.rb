@@ -18,7 +18,7 @@ class Animal
   end
   
   def self.create_from_list(animal_array)
-    animal_array.each do |animal|
+      animal_array.each do |animal|
       new_animal = Animal.new(animal)     #create animal objects with name
     end
   end

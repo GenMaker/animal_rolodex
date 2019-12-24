@@ -52,7 +52,8 @@ class Play
   
   def self.select_animal
     featured_animal= Animal.all.sample
-    puts "Your featured animal for today is: #{featured_animal}"
+    puts "Your featured animal for today is: #{featured_animal.name}"
+    featured_animal.name
   end
   
   # def self.learn_more
