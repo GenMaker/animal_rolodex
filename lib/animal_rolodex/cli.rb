@@ -20,8 +20,8 @@ class CLI
   
       def collect_animal_data
         Scraper.parse_animal_name(@selected_animal) #reshape animal name for second scraper
-        data = Scraper.scrape_selected_animal(BASE_PATH)   #creates animal_data raw data array
-        Animal.animal_data(data)
+        animal_doc = Scraper.scrape_selected_animal(BASE_PATH)   #creates animal_data raw data array
+        Animal.animal_data(animal_doc)
         
       end
   

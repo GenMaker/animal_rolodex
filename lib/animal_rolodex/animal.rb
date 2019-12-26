@@ -26,12 +26,52 @@ class Animal
   end
   
   def self.animal_data(animal_data)       #creates an array of all facts about selected animal
-      @collected = []
+      info = []
       animal_data.each do |i|
-        @collected << i.text
+        info << i.text
       end
-      @collected.shift(4)
-      @collected  
+      binding.pry
+      animal= {}
+      info.each do |i|
+        animal = {
+          kingdom:info[5],
+          phylum:info[7],
+          klass:info[9],
+          order:info[11],
+          family:info[13],
+          genus:info[15],
+          scientific_name:info[17],
+          common_name:info[19],
+          other_name:info[21],
+          group:info[24],
+          number_of_species:info[26],
+          location:info[28],
+          habitat:info[30],
+          color:info[33],
+          skin_type:info[35],
+          size:info[37],
+          wieght:info[39],
+          top_speed:info[41],
+          diet:info[44],
+          prey:info[46],
+          preditors:info[48],
+          life_style:info[51],
+          group_behavior:info[53],
+          life_span:info[56],
+          maturity:info[58],
+          gestation:info[60],
+          litter:info[62],
+          young:info[64],
+          weaning:info[66],
+          conservation_status:info[69],
+          estimated_population:info[71],
+          biggest_threat:info[73],
+          distinctive_feature:info[76],
+          fun_fact:info[78]
+        }
+      end
+        binding.pry
+
   end
   
   def self.add_data

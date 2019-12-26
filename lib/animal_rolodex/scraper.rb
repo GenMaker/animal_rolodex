@@ -26,15 +26,11 @@ class Scraper
    
   
   def self.scrape_selected_animal(site_url)
-    animal_data = []
     animal = @done_animal.to_s + "/"
     animal_url= site_url + animal
     doc2 = Nokogiri::HTML(open(animal_url))
-    animal = doc2.css("td").each do |i|
-      animal_data << i
-      end
-     animal_data
+    animal_data = doc2.css("td") 
+    animal_data
   end
-      
   
 end
