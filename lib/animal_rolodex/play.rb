@@ -4,8 +4,7 @@ require 'nokogiri'
 
 class Play
   
-  @animal_array =[]
-  @counter = 0
+  
   
   def self.welcome
     puts "Welcome to your animal rolodex! Let's learn about a new animal today!"
@@ -29,10 +28,11 @@ class Play
   
   def self.play 
     welcome
-    if @counter <= 2
+    counter = 0
+    if counter <= 2
       if @input == "!"
-        @counter += 1
-        Animal.select_animal
+        counter += 1
+        @star_animal = Animal.select_animal
         learn_more
       elsif @input == "exit" || @input == "Exit"
         goodbye
@@ -48,11 +48,15 @@ class Play
   end
   
   def self.learn_more
-    puts "Want to learn more about #{@selected_featured_animal}. Enter Yes." 
+    puts "Want to learn more about #{@star_animal.name}. Enter Yes." 
     puts "Want to spin again? Enter spin."
     learn_choice = gets.strip
-    if learn_choice == "Y" || learn_choice == "y"
-      Animal.display_data
+    if learn_choice == "Yes" || learn_choice == "yes"
+      puts "learning more about #{@star_animal.name}"
+      Scraper.scrape_selected_animal(@star_animal)
+      puts "kingdom #{star_animal.kingdom}"
+      
+      play
     else
       play
     end
