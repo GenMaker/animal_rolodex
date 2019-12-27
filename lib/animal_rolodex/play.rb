@@ -21,18 +21,18 @@ class Play
     puts "Goodbye! Till we spin again!"
   end
   
-  def select_animal
-    featured_animal= Animal.all.sample
-    puts "Your featured animal for today is: #{featured_animal.name}"
-    featured_animal.name
-  end
+  # def self.select_animal
+  #   featured_animal= Animal.all.sample
+  #   puts "Your featured animal for today is: #{featured_animal.name}"
+  #   featured_animal.name
+  # end
   
   def self.play 
     welcome
     if @counter <= 2
       if @input == "!"
         @counter += 1
-        select_animal
+        Animal.select_animal
         learn_more
       elsif @input == "exit" || @input == "Exit"
         goodbye
@@ -47,12 +47,12 @@ class Play
     end
   end
   
-  def learn_more
+  def self.learn_more
     puts "Want to learn more about #{@selected_featured_animal}. Enter Yes." 
     puts "Want to spin again? Enter spin."
     learn_choice = gets.strip
     if learn_choice == "Y" || learn_choice == "y"
-      locate_selected_animal_data
+      Animal.display_data
     else
       play
     end

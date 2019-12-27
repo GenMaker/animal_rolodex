@@ -25,6 +25,12 @@ class Animal
     end
   end
   
+   def self.select_animal
+    featured_animal= Animal.all.sample
+    puts "Your featured animal for today is: #{featured_animal.name}"
+    featured_animal.name
+  end
+  
   def self.animal_data(data)       #creates hash of all data from selected animal
       info = []
       data.each do |i|
@@ -223,6 +229,20 @@ class Animal
         
         animal_data= Hash[*collected]
         animal_data
+        binding.pry
+  end
+  
+  def collect_animal_data
+        Scraper.parse_animal_name(@selected_animal) #reshape animal name for second scraper
+        animal_doc = Scraper.scrape_selected_animal(BASE_PATH)   #creates animal_data raw data array
+        Animal.animal_data(animal_doc)
+      end
+      
+  def self.display_data(animal_data)
+    #selected animal and then display it.
+    self.animal_data(@@data) 
+    binding.pry
+    
   end
 
     

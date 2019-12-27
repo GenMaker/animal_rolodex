@@ -3,9 +3,9 @@ class CLI
    
   def run 
     make_animals
+    
     play
     
-    collect_animal_data
     
   end
   
@@ -17,18 +17,12 @@ class CLI
       
       def play
         Play.play
-        
-        
       end
       
       
   
   
-      def collect_animal_data
-        Scraper.parse_animal_name(@selected_animal) #reshape animal name for second scraper
-        animal_doc = Scraper.scrape_selected_animal(BASE_PATH)   #creates animal_data raw data array
-        Animal.animal_data(animal_doc)
-      end
+      
       
       
   

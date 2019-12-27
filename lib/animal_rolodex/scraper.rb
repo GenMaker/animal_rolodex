@@ -15,6 +15,7 @@ class Scraper
       end
   
       def self.parse_animal_name(selected_animal)
+        
         parsed_animal_name = ""
         if selected_animal.include?(" ")
             parsed_animal_name = selected_animal.gsub! /\s+/, '-'                #slug
@@ -25,12 +26,13 @@ class Scraper
       end
    
   
-  def self.scrape_selected_animal(site_url)
-    animal = @done_animal.to_s + "/"
-    animal_url= site_url + animal
-    doc2 = Nokogiri::HTML(open(animal_url))
-    animal_data = doc2.css("td") 
-    animal_data
-  end
+    def self.scrape_selected_animal(site_url)
+      animal = @done_animal.to_s + "/"
+      animal_url= site_url + animal
+      doc2 = Nokogiri::HTML(open(animal_url))
+      animal_noko_data = doc2.css("td") 
+      animal_noko_data
+      binding.pry
+    end
   
 end
