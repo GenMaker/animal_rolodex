@@ -25,58 +25,206 @@ class Animal
     end
   end
   
-  def self.animal_data(animal_data)       #creates an array of all facts about selected animal
+  def self.animal_data(data)       #creates hash of all data from selected animal
       info = []
-      animal_data.each do |i|
+      data.each do |i|
         info << i.text
       end
-      binding.pry
-      animal= {}
-      info.each do |i|
-        animal = {
-          kingdom:info[5],
-          phylum:info[7],
-          klass:info[9],
-          order:info[11],
-          family:info[13],
-          genus:info[15],
-          scientific_name:info[17],
-          common_name:info[19],
-          other_name:info[21],
-          group:info[24],
-          number_of_species:info[26],
-          location:info[28],
-          habitat:info[30],
-          color:info[33],
-          skin_type:info[35],
-          size:info[37],
-          wieght:info[39],
-          top_speed:info[41],
-          diet:info[44],
-          prey:info[46],
-          preditors:info[48],
-          life_style:info[51],
-          group_behavior:info[53],
-          life_span:info[56],
-          maturity:info[58],
-          gestation:info[60],
-          litter:info[62],
-          young:info[64],
-          weaning:info[66],
-          conservation_status:info[69],
-          estimated_population:info[71],
-          biggest_threat:info[73],
-          distinctive_feature:info[76],
-          fun_fact:info[78]
-        }
-      end
-        binding.pry
+     
+      collected = []
+      index_count = 0
+      
+      info.each_index.select do |x|
+        case
+          when info[x]== "Kingdom:Five groups that classify all living things"
+            i = x+1
+            collected << info[x]
+            collected << info[i]
+             
+          when info[x]== "Phylum:A group of animals within the animal kingdom"
+            i = x+1
+            collected << info[x]
+            collected << info[i] 
+            
+            
+          when info[x]== "Class:A group of animals within a pylum"
+            i = x+1
+            collected << info[x]
+            collected << info[i] 
+            
+          when info[x]== "Order:A group of animals within a class"
+            i = x+1
+            collected << info[x]
+            collected << info[i]  
+          
+          when info[x]== "Family:A group of animals within an order"
+            i = x+1
+            collected << info[x]
+            collected << info[i]  
+      
+          when info[x]== "Genus:A group of animals within a family"
+            i = x+1
+            collected << info[x]
+            collected << info[i] 
+      
+          when info[x]== "Scientific Name:The name of the animal in science"
+            i = x+1
+            collected << info[x]
+            collected << info[i] 
+      
+          when info[x]== "Common Name:Most widely used name for this species"
+            i = x+1
+            collected << info[x]
+            collected << info[i] 
+            
+          when info[x]== "Other Name(s):Different names for this animal"
+            i = x+1
+            collected << info[x]
+            collected << info[i] 
+      
+          when info[x]== "Group:The domestic group such as cat or dog"
+            i = x+1
+            collected << info[x]
+            collected << info[i]  
+      
+          when info[x]== "Number Of Species:The total number of recorded species"
+            i = x+1
+            collected << info[x]
+            collected << info[i] 
+      
+          when info[x]== "Location:The place where something is found"
+            i = x+1
+            collected << info[x]
+            collected << info[i]  
+      
+      
+          when info[x]== "Type:The animal group that the species belongs to"
+            i = x+1
+            collected << info[x]
+            collected << info[i]  
+      
+          when info[x]== "Diet:What kind of foods the animal eats"
+            i = x+1
+            collected << info[x]
+            collected << info[i] 
+      
+          when info[x]== "Size (L):How long (L) or tall (H) the animal is"
+            i = x+1
+            collected << info[x]
+            collected << info[i] 
+      
+          when info[x]== "Wingspan:The measurement from one wing tip to the other"
+            i = x+1
+            collected << info[x]
+            collected << info[i]  
+      
+          when info[x]== "Top Speed:The fastest recorded speed of the animal"
+            i = x+1
+            collected << info[x]
+            collected << info[i] 
+      
+          when info[x]== "Lifespan:How long the animal lives for"
+            i = x+1
+            collected << info[x]
+            collected << info[i]  
+      
+          when info[x]== "Conservation Status:The likelihood of the animal becoming extinct"
+            i = x+1
+            collected << info[x]
+            collected << info[i]  
+      
+          when info[x]== "Colour:The colour of the animal's coat or markings"
+            i = x+1
+            collected << info[x]
+            collected << info[i]  
+      
+          when info[x]== "Skin Type:The protective layer of the animal"
+            i = x+1
+            collected << info[x]
+            collected << info[i]  
+      
+          when info[x]== "Favourite Food:The preferred food of this animal"
+            i = x+1
+            collected << info[x]
+            collected << info[i] 
+      
+          when info[x]== "Habitat:The specific area where the animal lives"
+            i = x+1
+            collected << info[x]
+            collected << info[i]  
+      
+          when info[x]== "Average Clutch Size"
+            i = x+1
+            collected << info[x]
+            collected << info[i] 
+      
+          when info[x]== "Main Prey:The food that the animal gains energy from"
+            i = x+1
+            collected << info[x]
+            collected << info[i]  
+      
+          when info[x]== "Predators:Other animals that hunt and eat the animal"
+            i = x+1
+            collected << info[x]
+            collected << info[i]       
+      
+          when info[x]== "Distinctive Features:Characteristics unique to this animal"
+            i = x+1
+            collected << info[x]
+            collected << info[i]        
+      
+          when info[x]== "Weight:The measurement of how heavy the animal is"
+            i = x+1
+            collected << info[x]
+            collected << info[i]        
+      
+          when info[x]== "Prey:The food that the animal gains energy from"
+            i = x+1
+            collected << info[x]
+            collected << info[i]        
+      
+          when info[x]== "Lifestyle:Whether the animal is solitary or sociable"
+            i = x+1
+            collected << info[x]
+            collected << info[i]        
+      
+          when info[x]== "Group Behaviour:How the animal behaves in a group"
+            i = x+1
+            collected << info[x]
+            collected << info[i]         
+      
+          when info[x]== "Age Of Sexual Maturity:When the animal can produce offspring"
+            i = x+1
+            collected << info[x]
+            collected << info[i]   
+      
+          when info[x]== "Gestation Period:The time from conception to birth"
+            i = x+1
+            collected << info[x]
+            collected << info[i]  
+      
+          when info[x]== "Average Litter Size:The average number of babies born at once"
+            i = x+1
+            collected << info[x]
+            collected << info[i] 
+      
+          when info[x]== "Name Of Young:The name given to the offspring"
+            i = x+1
+            collected << info[x]
+            collected << info[i]   
+      
+          when info[x]== "Biggest Threat:The largest danger to this animal"
+            i = x+1
+            collected << info[x]
+            collected << info[i] 
+      
+           end 
+          end
+        
+        animal_data= Hash[*collected]
+        animal_data
+  end
 
-  end
-  
-  def self.add_data
-    
-  end
     
   def self.all
     @@all
