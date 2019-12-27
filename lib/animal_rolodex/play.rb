@@ -8,7 +8,7 @@ class Play
   
   def self.welcome
     puts "Welcome to your animal rolodex! Let's learn about a new animal today!"
-    puts "Enter ! to spin your rolodex. Type exit if you are done."
+    puts "Enter '!' to spin your rolodex. Type 'exit' if you are done."
     @input = gets.strip
   end 
   
@@ -19,12 +19,6 @@ class Play
     puts "3. Tell your Mom or Dad all about the #{@selected_featured_animal}."
     puts "Goodbye! Till we spin again!"
   end
-  
-  # def self.select_animal
-  #   featured_animal= Animal.all.sample
-  #   puts "Your featured animal for today is: #{featured_animal.name}"
-  #   featured_animal.name
-  # end
   
   def self.play 
     welcome
@@ -54,8 +48,9 @@ class Play
     if learn_choice == "Yes" || learn_choice == "yes"
       puts "learning more about #{@star_animal.name}"
       Scraper.scrape_selected_animal(@star_animal)
-      puts "kingdom #{star_animal.kingdom}"
-      
+      puts "Kingdom: #{@star_animal.kingdom}"
+      puts "Phylum: #{@star_animal.phylum}"
+      puts "Class: #{@star_animal.klass}"
       play
     else
       play

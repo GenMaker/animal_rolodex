@@ -14,25 +14,25 @@ class Scraper
         animal_name
       end
   
-      # def self.parse_animal_name(selected_animal)
+     def self.scrape_selected_animal(animal)
+        animal_url= "https://a-z-animals.com" + animal.url
+        doc2 = Nokogiri::HTML(open(animal_url))
+        animal_noko_data = doc2.css("td") 
+          info = []
+          animal_noko_data.each do |i|
+          info << i.text
+          end
+          split_data =[]
+          info.shift(4)
+            info.each do |i|
+              split_data << i.split(":")
+            end
+            split_data
+          Animal.animal_data(split_data)
+       
         
-      #   parsed_animal_name = ""
-      #   if selected_animal.include?(" ")
-      #       parsed_animal_name = selected_animal.gsub! /\s+/, '-'                #slug
-      #     else
-      #       parsed_animal_name = selected_animal
-      #   end
-      #     @done_animal = parsed_animal_name.downcase
-      # end
-   
-  
-    def self.scrape_selected_animal(animal)
-      animal_url= "https://a-z-animals.com" + animal.url
-      binding.pry
-      doc2 = Nokogiri::HTML(open(animal_url))
-      animal_noko_data = doc2.css("td") 
-      
-      animal.kingdom = # value
-    end
+        
+        #animal.kingdom = # value
+      end
   
 end
