@@ -2,9 +2,9 @@ class CLI
    BASE_PATH = "https://a-z-animals.com/animals/"
    
   def run 
+    Play.welcome
     make_animals
-    
-    collect_animal_info
+    #collect_animal_info
     play
   end
   

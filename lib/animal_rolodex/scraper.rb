@@ -13,7 +13,15 @@ class Scraper
         animal_name.shift(12)
         animal_name
       end
+      
+      def self.scrape_animal_text(animal)
+        animal_url= "https://a-z-animals.com" + animal.url
+        doc2 = Nokogiri::HTML(open(animal_url))
+        animal_noko_data = doc2.css("p") 
+        animal_info = animal_noko_data.text
+      end
   
+      # the following code is built to display the fast facts
      def self.scrape_selected_animal(animal)
         animal_url= "https://a-z-animals.com" + animal.url
         doc2 = Nokogiri::HTML(open(animal_url))
@@ -28,11 +36,7 @@ class Scraper
               split_data << i.split(":")
             end
             split_data
-          Animal.animal_data(split_data)
-       
-        
-        
-        #animal.kingdom = # value
+        Animal.animal_data(split_data)
       end
   
 end
