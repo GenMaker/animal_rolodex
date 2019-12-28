@@ -51,7 +51,8 @@ class Play
       puts "Kingdom: #{@star_animal.kingdom}"
       puts "Phylum: #{@star_animal.phylum}"
       puts "Class: #{@star_animal.klass}"
-      play
+     
+      #play
     else
       play
     end

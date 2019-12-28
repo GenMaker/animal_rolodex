@@ -1,12 +1,14 @@
 
 class Animal
-  attr_accessor :name, :url,:kingdom, :phylum, :class, :family, :genus, :scientific_name, :common_name, :other_names, :group, :number_of_species, :location, :habitat, :colour, :skin_type,:size, :weight, :top_speed, :diet, :prey, :preditors, :life_style, :group_behavior, :life_span, :age_of_sexual_maturity, :gestation_period, :average_litter_size, :name_of_young, :age_of_weaning, :conservation_status, :estimated_population_size, :biggest_treat, :most_distinctive_feature, :fun_fact
+  attr_accessor :name, :url,:kingdom, :phylum, :klass, :family, :genus, :scientific_name, :common_name, :other_names, :group, :number_of_species, :location, :habitat, :colour, :skin_type,:size, :weight, :top_speed, :diet, :prey, :preditors, :life_style, :group_behavior, :life_span, :age_of_sexual_maturity, :gestation_period, :average_litter_size, :name_of_young, :age_of_weaning, :conservation_status, :estimated_population_size, :biggest_treat, :most_distinctive_feature, :fun_fact
   @@all = []
   
-  def initialize(name,url = nil,kingdom = nil)
+  def initialize(name, url = nil, kingdom = nil, phylum = nil, klass = nil)
       @name = name
       @url = url
       @kingdom = kingdom
+      @phylum = phylum
+      @klass = klass
       
       @@all << self    
   end
@@ -25,18 +27,24 @@ class Animal
   end
   
   def self.animal_data(data)       #adds data to animals
-    Animal.all.each do |i|
-      
+    Animal.all.each do |i| #iterate through all animals
         case
           when i.name == @featured_animal.name  #when names match
             data.each_with_index do |value,index| #search data array for value=kingdom index= num
               x = 0
-              if value[x] == data[index] # when data's value 
+              if value[x] == "Kingdom" # when matches kingdom save the data into the object
                 p = index + 1
                 i.kingdom = data[p]
               elsif 
-                if value[x] != data[x]
-                x = value +=1
+                value[x] == "Phylum" 
+                p = index + 1
+                i.phylum = data[p]
+              elsif
+                 value[x] == "Class" 
+                p = index + 1
+                i.klass = data[p]
+              elsif                     # otherwise add one to x 
+                x +=1
               end
           end
         end
