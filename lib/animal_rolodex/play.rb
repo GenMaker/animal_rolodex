@@ -5,19 +5,24 @@ require 'nokogiri'
 class Play
   
   def self.welcome
-    puts "Welcome to your animal rolodex! Let's learn about a new animal today!"
+    puts " _______________________________________________________________________"
+    puts "| Welcome to your animal rolodex! Let's learn about a new animal today! |"
+    puts "|_______________________________________________________________________|"
   end 
   
   def self.goodbye
-    puts "Thanks for checking out your animal rolodex. Additional project ideas:" 
-    puts "1. Draw a picture of your #{@star_animal.name}."
-    puts "2. Play pretend that you are a #{@star_animal.name}."
-    puts "3. Tell your Mom or Dad all about the #{@star_animal.name}."
-    puts "Goodbye! Till we spin again!"
+    puts " _______________________________________________________________________"
+    puts "  Thanks for checking out your animal rolodex. Additional project ideas:" 
+    puts "  1. Draw a picture of your #{@star_animal.name}."
+    puts "  2. Play pretend that you are a #{@star_animal.name}."
+    puts "  3. Tell your Mom or Dad all about the #{@star_animal.name}."
+    puts "  Goodbye! Till we spin again!"
+    puts " _______________________________________________________________________"
   end
   
   def self.play 
-    puts "Enter '!' to spin your rolodex. Type 'exit' if you are done."
+    puts "\n"
+    puts "            Enter '!' to spin your rolodex. Type 'exit' if you are done."
     @input = gets.strip
     counter = 0
     if counter <= 2
@@ -35,22 +40,36 @@ class Play
   end
   
   def self.learn_more
-    puts "Want to learn more about #{@star_animal.name}.? Enter Yes." 
-    puts "Want to spin again? Enter spin."
-    learn_choice = gets.strip
-    if learn_choice == "Yes" || learn_choice == "yes"
-      puts "Here is some information about #{@star_animal.name}\n"
-      information = Animal.animal_writing(@star_animal)
-      puts information
-      puts "\n"
-      play
-    elsif
-      learn_choice == "spin"
-      play
-    else
-      puts "Opps, please enter 'yes' or 'spin'."
-      learn_more
-    end
+    Animal.animal_writing(@star_animal)
+      puts " _______________________________________________________________________"    
+      puts "                            Want to learn more? "
+      puts "      Enter '1' to introduce your #{@star_animal.name}. "
+      puts " "
+      puts "      Want to spin again? Enter spin."
+      puts "      Enter 'exit' to exit the game."
+      puts " _______________________________________________________________________"
+      learn_choice = gets.strip
+     
+        if learn_choice == "1"
+            puts "__________________________________________________________"
+            puts "Here is some information about the #{@star_animal.name}\n"
+            puts @star_animal.text
+            puts "\n"
+            puts "__________________________________________________________"
+            learn_more
+          elsif learn_choice == "spin" || learn_choice == "Spin"
+            play
+          elsif learn_choice == "exit" || learn_choice == "Exit"
+            goodbye
+          else
+            puts "__________________________________________________________"
+            puts "Opps, please enter 'yes' or 'spin'."
+            puts "__________________________________________________________"
+            learn_more
+        end
   end
   
-end
+end   
+
+
+

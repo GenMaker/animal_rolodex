@@ -1,4 +1,3 @@
-
 class Animal
   attr_accessor :name, :url, :text
   @@all = []
@@ -24,8 +23,8 @@ class Animal
   end
   
   def self.animal_writing(animal)
-     text = Scraper.scrape_animal_text(animal.url)
-     animal.text = text
+      text = Scraper.scrape_animal_text(animal.url)
+      animal.text = text
   end
 
   def self.all
@@ -33,9 +32,3 @@ class Animal
   end
 
 end
-
-  
-  
-
-
-  

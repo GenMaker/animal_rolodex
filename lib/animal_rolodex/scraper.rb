@@ -14,11 +14,10 @@ class Scraper
       end
       
       def self.scrape_animal_text(animal) #scrapes selected animal page
-        
         animal_url= "https://a-z-animals.com" + animal
         doc2 = Nokogiri::HTML(open(animal_url))
         animal_noko_data = doc2.css("p") 
         animal_info = animal_noko_data.text
-        
+        animal_info
       end
 end
