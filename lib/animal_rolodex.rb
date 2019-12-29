@@ -5,3 +5,4 @@ require_relative "./animal_rolodex/play.rb"
 require_relative "./animal_rolodex/animal.rb"
 require 'pry'
 require 'nokogiri'
+require 'open-uri'

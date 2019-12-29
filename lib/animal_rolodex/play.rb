@@ -1,7 +1,3 @@
-require 'open-uri'
-require 'pry'
-require 'nokogiri'
-
 class Play
   
   def self.welcome
