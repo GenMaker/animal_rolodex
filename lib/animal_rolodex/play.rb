@@ -20,10 +20,7 @@ class Play
     puts "\n"
     puts "            Enter '!' to spin your rolodex. Type 'exit' if you are done."
     @input = gets.strip
-    counter = 0
-    if counter <= 2
       if @input == "!"
-        counter += 1
         @star_animal = Animal.select_animal
         learn_more
       elsif @input == "exit" || @input == "Exit"
@@ -32,7 +29,7 @@ class Play
         puts "Opps make sure you type in ! or exit"
         play
       end
-    end
+    
   end
   
   def self.learn_more
@@ -59,7 +56,7 @@ class Play
             goodbye
           else
             puts "__________________________________________________________"
-            puts "Opps, please enter 'yes' or 'spin'."
+            puts "Opps, please enter '1','exit', or 'spin'."
             puts "__________________________________________________________"
             learn_more
         end
