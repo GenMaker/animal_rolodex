@@ -20,4 +20,5 @@ class Scraper
         animal_info = animal_noko_data.text
         animal_info
       end
+    
 end
