@@ -22,9 +22,9 @@ class Animal
     @featured_animal
   end
   
-  def self.animal_writing(animal)
-      text = Scraper.scrape_animal_text(animal.url)
-      animal.text = text
+  def animal_writing
+      text = Scraper.scrape_animal_text(@url)
+      #animal.text = text
   end
 
   def self.all

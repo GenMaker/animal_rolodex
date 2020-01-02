@@ -33,7 +33,8 @@ class Play
   end
   
   def self.learn_more
-    Animal.animal_writing(@star_animal)
+    
+    @star_animal.animal_writing
       puts " _______________________________________________________________________"    
       puts "                            Want to learn more? "
       puts "      Enter '1' to introduce your #{@star_animal.name}. "
