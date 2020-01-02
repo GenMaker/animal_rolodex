@@ -1,7 +1,10 @@
 #!/usr/bin/env ruby
+  #this is a shebang line that tells the program loader what command to use to execute the files
 
 require_relative '../lib/animal_rolodex'
+  #this line tells the loader that we need this file in the lib folder
 
-CLI.new.run
+CLI.new.run 
+  #this calls the Cli class and .new creates a new instance of that class. .run calls the ?...instance or class? method that ?....
 
 
