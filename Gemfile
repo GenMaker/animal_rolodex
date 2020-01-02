@@ -1,9 +1,10 @@
 source "https://rubygems.org"
 
 # Specify your gem's dependencies in animal_rolodex.gemspec
-gemspec
+#gemspec
 
 
-gem 'rake'	source "https://rubygems.org"
-gem 'pry`	
-gem 'require_all'
+#gem 'rake'	source "https://rubygems.org"
+gem 'pry'
+#gem 'require_all'
+gem 'nokogiri'
