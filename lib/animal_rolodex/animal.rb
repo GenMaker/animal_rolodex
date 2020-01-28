@@ -10,7 +10,7 @@ class Animal
   end
   
   def self.create_from_list(animal_array) #create animal objects name and url and text
-    animal_array.each do |animal|
+      animal_array.each do |animal|
       new_animal = Animal.new(animal[:name], animal[:url], animal[:text])     
     end
    
